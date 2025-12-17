@@ -1,0 +1,30 @@
+/* Clases para colores de fondo */
+.F-primary, .bg-F-primary {
+  background-color: #F3F6FC !important;
+}
+.fondo-p, .bg-fondo-p {
+  background-color: var(--color-p);
+}
+.fondo-s, .bg-fondo-s{
+  background-color: var(--color-s);
+}
+.fondo-t, .bg-fondo-t {
+  background-color: var(--color-t);
+}
+
+.q-table__top{
+  padding: 8px;
+}
+.q-table>thead>tr,
+.q-table__bottom {
+  user-select: none;
+}
+
+.q-table>thead>tr,
+.q-table__bottom {
+  background: #EEEEEE;
+  color: black;
+  position: sticky;
+  top: 0;
+  z-index: 2;
+}
