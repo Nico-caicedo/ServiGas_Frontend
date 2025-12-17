@@ -36,22 +36,22 @@
                             <q-card flat bordered>
                                 <q-card-section class="text-center bg-grey-3">
                                     <strong>Usuario {{ props.row.Tercero }}<br> Código: {{ props.row.Matricula
-                                    }}</strong>
+                                        }}</strong>
                                 </q-card-section>
                                 <q-separator />
                                 <q-card-section class="text-grey-9">
                                     <q-item-label class="">Radicado: {{ props.row.Radicado }}</q-item-label>
                                     <q-item-label class="">Fecha: {{ Utils.darFormatofechaConHoras(props.row.Fecha)
-                                    }}</q-item-label>
+                                        }}</q-item-label>
                                     <q-item-label class="">Barrio: {{ props.row.Barrio }}</q-item-label>
                                     <q-item-label class="">Direccion: {{ props.row.Direccion }}</q-item-label>
                                     <q-item-label class="">Inspector: {{ props.row.Usuario }}</q-item-label>
                                     <q-item-label class="">Creador: {{ props.row.Supervisor }}</q-item-label>
                                     <q-item-label class="">Tipo Servicio: {{ props.row.Causante }}</q-item-label>
                                     <q-item-label class="">Tipo Instalacion: {{ props.row.TipoInstalacion
-                                    }}</q-item-label>
+                                        }}</q-item-label>
                                     <q-item-label class="">Distribuidora: <q-badge>{{ props.row.Distribuidora
-                                    }}</q-badge></q-item-label>
+                                            }}</q-badge></q-item-label>
                                     <q-item-label class="">Telefono: {{ props.row.Telefono }}</q-item-label>
                                 </q-card-section>
                                 <q-separator />
@@ -146,9 +146,8 @@
 
                 </div>
 
-                <!-- <div class="bg-white borde-interno q-mb-md" style="border: 1px solid #2d7dc2 !important">
-                    <div class="row items-center justify-center text-white text-center"
-                        style="height: 30px; background-color: #2d7dc2;">
+                <div class="bg-white borde-interno q-mb-md" style="border: 1px solid #2d7dc2 !important">
+                    <div class="row items-center justify-center text-white text-center" style="height: 30px; background-color: #2d7dc2;">
                         Imagenes
                     </div>
 
@@ -168,19 +167,14 @@
                         </q-card>
 
                     </div>
-                </div> -->
+                </div>
                 <div class="row">
 
-                    <div class="row justify-center col-12 q-gutter-sm">
-                        <q-file bg-color="red-2" accept="application/pdf" outlined :rules="[Utils.regla]"
-                            max-file-size="1992294" class=" col-xs-12 col-sm-5 col-md-5" name="poster_file"
-                            v-model="Pdf" label="Cargar PDF " @rejected="handleInputError" />
-                        <q-file outlined bg-color="yellow-2" accept="application/pdf"  :rules="[Utils.regla]"
-                            max-file-size="1992294" class=" col-xs-12 col-sm-5 col-md-5" name="poster_file"
-                            v-model="PdfEvidencia" label="Cargar PDF Evidencia" @rejected="handleInputError" />
-                    </div>
-                    <q-btn color="green" class="self-center col-xs-12 col-sm-12 col-md-12" type="submit"
-                        label="Guardar" />
+                    <q-file bg-color="red-2" accept="application/pdf" outlined :rules="[Utils.regla]"
+                        max-file-size="1992294" class="q-mb-md col-xs-12 col-sm-12 col-md-12" name="poster_file"
+                        v-model="Pdf" label="Cargar pdf" @rejected="handleInputError" />
+
+                    <q-btn color="green" class="self-center col-xs-12 col-sm-12 col-md-12" type="submit" label="Guardar" />
                 </div>
 
             </q-form>
@@ -190,24 +184,16 @@
                     <q-card-section style="position: sticky; top: 0; z-index: 3;"
                         class="items-center full-width row justify-between bg-grey-8 text-white">
                         <div class="text-h6">Historial </div>
-                        <q-btn size="sm" @click="buscarFiltro('Corregir')"
-                            :label="historialTemporal.filter((orden) => orden.EstadoOrden === 'Corregir').length"
-                            color="red">
+                        <q-btn size="sm" @click="buscarFiltro('Corregir')" :label="historialTemporal.filter((orden) => orden.EstadoOrden === 'Corregir').length" color="red">
                             <q-tooltip class="bg-red" :offset="[10, 10]"> Corregir</q-tooltip>
                         </q-btn>
-                        <q-btn size="sm" @click="buscarFiltro('Corregida')"
-                            :label="historialTemporal.filter((orden) => orden.EstadoOrden === 'Corregida').length"
-                            color="blue">
+                        <q-btn size="sm" @click="buscarFiltro('Corregida')" :label="historialTemporal.filter((orden) => orden.EstadoOrden === 'Corregida').length" color="blue">
                             <q-tooltip class="bg-blue" :offset="[10, 10]"> Corregida</q-tooltip>
                         </q-btn>
-                        <q-btn size="sm" @click="buscarFiltro('Terminado')"
-                            :label="historialTemporal.filter((orden) => orden.EstadoOrden === 'Terminado').length"
-                            color="green">
+                        <q-btn size="sm" @click="buscarFiltro('Terminado')" :label="historialTemporal.filter((orden) => orden.EstadoOrden === 'Terminado').length" color="green">
                             <q-tooltip class="bg-green" :offset="[10, 10]"> Terminado</q-tooltip>
                         </q-btn>
-                        <q-btn size="sm" @click="buscarFiltro('Pendiente')"
-                            :label="historialTemporal.filter((orden) => orden.EstadoOrden === 'Pendiente').length"
-                            color="orange">
+                        <q-btn size="sm" @click="buscarFiltro('Pendiente')" :label="historialTemporal.filter((orden) => orden.EstadoOrden === 'Pendiente').length" color="orange">
                             <q-tooltip class="bg-orange" :offset="[10, 10]"> Pendiente</q-tooltip>
                         </q-btn>
                         <q-input bg-color="white" type="text" class="col-md-5 col-sm-5 col-xs-8 q-ml-sm q-mr-sm" dense
@@ -256,14 +242,7 @@
                                                 accept="application/pdf" bg-color="red-2" @rejected="handleInputError"
                                                 max-file-size="1992294" outlined
                                                 class="q-mb-md q-ml-md col-xs-12 self-center col-sm-12 col-md-12"
-                                                name="poster_file" v-model="PdfActualizar" label="Cargar PDF" />
-
-                                                    <q-file style="width: 90%;"
-                                                v-if="log.EstadoOrden !== 'Terminado' && log.EstadoOrden !== 'Pendiente'"
-                                                accept="application/pdf" bg-color="yellow-2" @rejected="handleInputError"
-                                                max-file-size="1992294" outlined
-                                                class="q-mb-md q-ml-md col-xs-12 self-center col-sm-12 col-md-12"
-                                                name="poster_file" v-model="PdfActEvidencia" label="Cargar PDF Evidencias" />
+                                                name="poster_file" v-model="PdfActualizar" label="Cargar pdf" />
 
                                             <q-btn class="self-center q-ml-md q-mb-md"
                                                 v-if="log.EstadoOrden !== 'Terminado' && log.EstadoOrden !== 'Pendiente'"
@@ -313,9 +292,7 @@ const isHistorial = ref(false)
 const OrdenesAsignadas = ref({ rows: [] })
 
 const Pdf = ref(null)
-const PdfEvidencia = ref(null)
 const PdfActualizar = ref(null)
-const PdfActEvidencia = ref(null)
 watch(Pdf, (newValue, oldValue) => {
     Pdf.value = newValue
 })
@@ -341,7 +318,7 @@ OrdenesAsignadas.value.columns = [
 const buscarHistorial = () => {
     buscarFiltro(filtroHistorial.value)
 }
-const buscarFiltro = (filtro) => {
+const buscarFiltro = (filtro) =>{
     historial.value = historialTemporal.value.filter(objeto =>
         Object.values(objeto).some(valor =>
             valor != null && valor.toString().toLowerCase().includes(filtro.toLowerCase())
@@ -413,10 +390,8 @@ const TomarOrden = async (IdOrdenServicio, Causante) => {
         return;
     }
 
-    // let cargarConCronometro = await Utils.confirmarAccion("¿Cargar con cronómetro?");
-    // estadoCronometro.value = cargarConCronometro;
-    estadoCronometro.value = false;
-
+    let cargarConCronometro = await Utils.confirmarAccion("¿Cargar con cronómetro?");
+    estadoCronometro.value = cargarConCronometro;
 
     OrdenServicio.value.IdOrdenServicio = IdOrdenServicio;
     OrdenServicio.value.IdTipoServicio = Causante === 'Previa' ? 2 : Causante === 'Reforma' ? 4 : 0;
@@ -443,8 +418,6 @@ const volverATabla = async () => {
     estadoCronometro.value = false
     OrdenServicio.value = {}
     Pdf.value = null
-    PdfEvidencia.value = null
-
     ImagenesXServicio.value = {}
     ContadorDeImagenes.value = 0
 }
@@ -563,32 +536,26 @@ const ValidarIntervalos = async () => {
 }
 const GuardarInspeccion = async (event) => {
 
-    // let totalImagenesCargas = ImagenesXServicio.value.filter(img => img.Cargada === true)
-    // if (totalImagenesCargas.length < ContadorDeImagenes.value) {
-    //     Utils.notificacion("Debe cargar todas las imagenes", false)
-    //     return
-    // }
+    let totalImagenesCargas = ImagenesXServicio.value.filter(img => img.Cargada === true)
+    if (totalImagenesCargas.length < ContadorDeImagenes.value) {
+        Utils.notificacion("Debe cargar todas las imagenes", false)
+        return
+    }
     if (Pdf.value === null) {
         Utils.notificacion("Debe cargar el pdf", false)
         return
     }
-
-    if (PdfEvidencia.value === null) {
-        Utils.notificacion("Debe cargar el PDF  de Evidencias", false)
-        return
-    }
-
     if (!(await Utils.confirmarAccion("Seguro de realizar el registro ?"))) {
         return
     }
 
-    Utils.loadingNotify(true, "Guardando Datos, puede tardar un momento")
-    // OrdenServicio.value.Imagenes = ImagenesXServicio.value.map(imagen => ({
-    //     Ruta: imagen.Ruta,
-    //     IdImagen: imagen.IdImagen,
-    //     MarcaDeAgua: imagen.MarcaDeAgua,
-    //     FechaCreacion: imagen.FechaCreacion,
-    // }))
+    Utils.loadingNotify(true, "Guardando evidencia, puede tardar un momento")
+    OrdenServicio.value.Imagenes = ImagenesXServicio.value.map(imagen => ({
+        Ruta: imagen.Ruta,
+        IdImagen: imagen.IdImagen,
+        MarcaDeAgua: imagen.MarcaDeAgua,
+        FechaCreacion: imagen.FechaCreacion,
+    }))
 
     OrdenServicio.value.IdUsuario = IdUsuario.value
 
@@ -604,7 +571,6 @@ const GuardarInspeccion = async (event) => {
             estadoCronometro.value = false
 
             Pdf.value = null
-             PdfEvidencia.value = null
 
             TraerOrdenAsignada()
         }
@@ -644,8 +610,6 @@ const GuardarPdf = async (nombreArchivo) => {
 
         const formData = new FormData();
         formData.append("pdf", Pdf.value)
-        formData.append("pdfEvidencia", PdfEvidencia.value)
-
         formData.append("NumeroInforme", nombreArchivo)
         const response = await Api.post("tramite/pdf", formData, {
             headers: {
@@ -663,15 +627,10 @@ const GuardarPdf = async (nombreArchivo) => {
     }
 }
 const actualizarPdf = async (IdObservacion, NumeroInforme) => {
-    if (!(await Utils.confirmarAccion("Solo tiene un intento para corregir  los PDF´s, desea continuar ?"))) {
+    if (!(await Utils.confirmarAccion("Solo tiene un intento para corregir el pdf, desea continuar ?"))) {
         return
     }
     if (PdfActualizar.value === null || PdfActualizar.value == '') {
-        Utils.notificacion("Seleccione Archivo", null)
-        return
-    }
-
-      if (PdfActEvidencia.value === null || PdfActEvidencia.value == '') {
         Utils.notificacion("Seleccione Archivo", null)
         return
     }
@@ -679,7 +638,6 @@ const actualizarPdf = async (IdObservacion, NumeroInforme) => {
     try {
         const formData = new FormData();
         formData.append("pdf", PdfActualizar.value)
-        formData.append("pdfEvidencia", PdfActEvidencia.value)
         formData.append("NumeroInforme", NumeroInforme)
         formData.append("IdUsuarioA", IdUsuario.value)
         formData.append("IdObservacion", IdObservacion)
@@ -690,8 +648,6 @@ const actualizarPdf = async (IdObservacion, NumeroInforme) => {
         })
         Utils.loadingNotify(false)
         PdfActualizar.value = null
-        PdfActEvidencia.value = null
-
         TraerHistorial()
 
     } catch (error) {

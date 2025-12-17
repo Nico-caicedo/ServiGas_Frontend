@@ -38,7 +38,9 @@
                                         <q-item clickable v-close-popup
                                             @click="abrirModalEvidencia(props.row.IdOrdenServicio)">Evidencias</q-item>
                                         <q-item clickable v-close-popup
-                                            @click="mostrarPdf(props.row.IdOrdenServicio)">Pdf</q-item>
+                                            @click="mostrarPdf(props.row.IdOrdenServicio)">PDF</q-item>
+                                            <q-item clickable v-close-popup
+                                            @click="mostrarPdfEvidencia(props.row.IdOrdenServicio)">PDF Evidencia</q-item>
                                         <q-item clickable v-close-popup
                                             @click="eliminarCompleto(props.row.eliminarCompleto)">Eliminar</q-item>
                                     </q-list>
@@ -146,11 +148,31 @@ const mostrarPdf = async (idOrden) => {
         if (response.data) {
             const url = response.data.Dato;
             window.open("https://web.neosage.co/WebApiServigas/Pdfs/" + url + ".pdf", '_blank');
+            // window.open("http://192.168.0.120/WebApiServiGas/Pdfs/" + url + ".pdf", '_blank');
+
         }
     } catch (e) {
         console.log(e);
     }
 }
+
+const mostrarPdfEvidencia = async (idOrden) => {
+    Utils.loadingNotify(true, "Cargando...");
+    try {
+        const response = await Api.get(`orden/${idOrden}/pdf`);
+        Utils.loadingNotify(false, "");
+
+        if (response.data) {
+            const url = response.data.Dato;
+            window.open("https://web.neosage.co/WebApiServigas/Pdfs/" + url+ "_Evidencia" + ".pdf", '_blank');
+            // window.open("http://192.168.0.120/WebApiServiGas/Pdfs/" + url+ "_Evidencia" + ".pdf", '_blank');
+
+        }
+    } catch (e) {
+        console.log(e);
+    }
+}
+
 
 const TraerOrdenesSinRevisar = async () => {
     Utils.loadingNotify(true, "Cargando...")
